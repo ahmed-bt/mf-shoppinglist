@@ -21,7 +21,7 @@ const App = () => {
   };
   return (
     <div className='App'>
-      <Header />
+      <Header totalItems={items.length} />
       <div className='row'>
         <div className='col-sm-6'>
           <ListItems items={items} deleteItem={deleteItem} />

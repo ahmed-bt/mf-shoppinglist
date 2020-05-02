@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const Header = ({ title }) => {
+export const Header = ({ title, totalItems }) => {
   return (
     <div className='navbar bg-primary'>
-      <h1>{title}</h1>
+      <h1>{totalItems} items still to buy</h1>
     </div>
   );
 };

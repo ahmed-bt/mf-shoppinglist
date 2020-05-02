@@ -1,13 +1,13 @@
 import React from 'react';
 import Item from './Item';
 
-export const ListItems = ({ items }) => {
+export const ListItems = ({ items, deleteItem }) => {
   return (
     <div>
       <ul>
         {items.map((item) => (
           <li className='p-2 bd-highlight' key={item.id}>
-            <Item item={item} />
+            <Item item={item} deleteItem={deleteItem} />
           </li>
         ))}
       </ul>

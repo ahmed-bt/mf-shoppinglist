@@ -1,6 +1,0 @@
-app:
-  datasource:
-    jdbc-url: jdbc:postgresql://localhost:5432/shoppingList
-    username: postgres
-    password: admin
-    pool-size: 30

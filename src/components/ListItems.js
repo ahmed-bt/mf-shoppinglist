@@ -6,7 +6,7 @@ export const ListItems = ({ items, deleteItem }) => {
     <div>
       <ul>
         {items.map((item) => (
-          <li className='p-2 bd-highlight' key={item.id}>
+          <li className='p-2 bd-highlight' key={item.name}>
             <Item item={item} deleteItem={deleteItem} />
           </li>
         ))}

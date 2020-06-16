@@ -1,17 +1,50 @@
-import React, { useState } from 'react';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import './styles.css';
 import ListItems from './components/ListItems';
 import Header from './components/Header';
 import AddItem from './components/AddItem';
-
+import axios from 'axios';
 const App = () => {
   const [items, setItems] = useState([
-    { id: 1, name: 'Milk', description: '', quantity: 2 },
-    { id: 2, name: 'Flour', description: '', quantity: 1 },
+    {
+      name: 'Baguette',
+      description: 'empty',
+      quantity: 2,
+    },
   ]);
 
-  const addListItem = (item) => {
-    setItems(items.concat(item));
+  // const addListItem = (item) => {
+  //   setItems(items.concat(item));
+  // };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await axios.get('http://localhost:5004/api/shoppinglist');
+      setItems(res.data);
+    };
+    fetchData();
+  }, []);
+
+  const addListItem = async (item) => {
+    if (!items.includes(item)) {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
+      try {
+        const res = await axios.post(
+          'http://localhost:5004/api/shoppinglist',
+          item,
+          config
+        );
+        setItems(items.concat(res.data));
+      } catch (err) {
+        console.log('ERROR ERROR ABORT');
+      }
+    } else {
+      alert('Product already exists');
+    }
   };
 
   const deleteItem = (id) => {

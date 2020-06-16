@@ -7,8 +7,6 @@ var styleRequired = {
 
 const AddItem = (props) => {
   const [item, setItem] = useState({
-    id: uuid.v4(),
-    date: new Date(),
     name: '',
     description: '',
     quantity: 0,
@@ -24,13 +22,13 @@ const AddItem = (props) => {
       <h3 className='page-header'>Add New Item</h3>
 
       <div className='form-group'>
-        <label htmlFor='listItemName'>
+        <label htmlFor='name'>
           Name <span style={styleRequired}>*</span>
         </label>
         <input
           type='text'
           className='form-control'
-          id='listItemName'
+          id='name'
           placeholder='Enter name'
           required
           onChange={(e) => {
@@ -43,11 +41,11 @@ const AddItem = (props) => {
       </div>
 
       <div className='form-group'>
-        <label htmlFor='listItemDescription'>Description</label>
+        <label htmlFor='description'>Description</label>
         <textarea
           className='form-control'
           rows='3'
-          id='listItemDescription'
+          id='description'
           placeholder='Enter description'
           onChange={(e) => {
             const val = e.target.value;
@@ -59,7 +57,7 @@ const AddItem = (props) => {
       </div>
 
       <div className='form-group'>
-        <label htmlFor='listItemQuantity'>
+        <label htmlFor='quantity'>
           Quantity <span style={styleRequired}>*</span>
         </label>
         <div className='row'>
@@ -71,7 +69,7 @@ const AddItem = (props) => {
               step='1'
               defaultValue='1'
               className='form-control'
-              id='listItemQuantity'
+              id='quantity'
               required
               onChange={(e) => {
                 const val = e.target.value;
